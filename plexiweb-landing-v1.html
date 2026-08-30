@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Plexiweb - Desarrollo Web y Diseño</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "error": "#ba1a1a",
+                        "secondary": "#115cb9",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-fixed": "#001a40",
+                        "accent-blue": "#3B82F6",
+                        "background": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#acc7ff",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "surface-container-high": "#e6e8ea",
+                        "outline-variant": "#c4c6d0",
+                        "tertiary-container": "#1d2d41",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#003370",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed": "#d3e4fe",
+                        "surface-white": "#FFFFFF",
+                        "on-error": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed-variant": "#264778",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-fixed": "#d7e2ff",
+                        "surface-bright": "#f7f9fb",
+                        "deep-navy": "#001E3C",
+                        "outline": "#747780",
+                        "on-primary-fixed": "#001b3d",
+                        "surface": "#f7f9fb",
+                        "tertiary": "#07182b",
+                        "inverse-primary": "#a9c7ff",
+                        "secondary-container": "#659dfe",
+                        "on-surface": "#191c1e",
+                        "primary-container": "#002b5b",
+                        "primary": "#001736",
+                        "on-secondary-fixed-variant": "#004491",
+                        "slate-border": "#E2E8F0",
+                        "on-primary-container": "#7594ca",
+                        "on-surface-variant": "#43474f",
+                        "on-tertiary-container": "#8495ad",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#405f91",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "primary-fixed-dim": "#a9c7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "80px",
+                        "unit": "4px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}],
+                        "display-lg": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["42px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+
+    <!-- TopAppBar -->
+    <header class="bg-surface-white dark:bg-deep-navy text-secondary dark:text-secondary-fixed fixed top-0 w-full z-50 border-b border-slate-border dark:border-outline-variant shadow-sm dark:shadow-none">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20 flex justify-between items-center w-full">
+            <div class="flex items-center gap-2 cursor-pointer active:opacity-70">
+                <span class="material-symbols-outlined text-3xl" data-icon="code">code</span>
+                <span class="font-headline-xl text-headline-xl font-bold text-deep-navy dark:text-surface-white">Plexiweb</span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex gap-8">
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-accent-blue transition-colors cursor-pointer" href="#beneficios">Beneficios</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-accent-blue transition-colors cursor-pointer" href="#estructura">Estructura</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-accent-blue transition-colors cursor-pointer" href="#portfolio">Proyectos</a>
+            </nav>
+
+            <a href="#contacto" class="hidden md:block bg-deep-navy text-surface-white hover:bg-secondary font-label-md text-label-md px-6 py-2 rounded-lg transition-colors cursor-pointer">
+                Contacto
+            </a>
+
+            <!-- Mobile Menu Icon -->
+            <button id="menu-btn" class="md:hidden text-on-background p-2 focus:outline-none">
+                <span class="material-symbols-outlined" data-icon="menu">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface-white border-t border-slate-border/50 px-margin-mobile py-4 space-y-4 shadow-lg absolute left-0 w-full top-20 z-40 transition-all duration-300">
+            <a class="block font-label-md text-label-md text-on-surface-variant hover:text-accent-blue py-2" href="#beneficios">Beneficios</a>
+            <a class="block font-label-md text-label-md text-on-surface-variant hover:text-accent-blue py-2" href="#estructura">Estructura</a>
+            <a class="block font-label-md text-label-md text-on-surface-variant hover:text-accent-blue py-2" href="#portfolio">Proyectos</a>
+            <a class="block bg-deep-navy text-surface-white hover:bg-secondary text-center py-3 rounded-lg font-label-md" href="#contacto">Contacto</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-24 md:pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative">
+
+        <!-- Hero Section -->
+        <section class="flex flex-col py-12 md:py-24 relative overflow-hidden rounded-3xl bg-surface-white border border-slate-border shadow-sm mb-12">
+            <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+            <div class="relative z-10 flex flex-col gap-6 text-left max-w-3xl px-8 md:px-16">
+                <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-deep-navy">
+                    Tu negocio ahora puede <span class="text-[#2563EB]">vender más</span> con una web hecha en <span class="text-[#2563EB]">24hs</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Hacer una web siempre ha sido complicado y costoso. Hoy te ayudamos en dominio, hosting y diseño completo.
+                </p>
+                <div class="flex gap-4 mt-8">
+                    <a href="#contacto" class="bg-[#2563EB] hover:bg-blue-700 text-white font-label-md text-label-md px-8 py-4 rounded-lg transition-colors shadow-lg shadow-blue-500/20 text-lg">
+                        Empezar hoy · $25.000/mes
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beneficios Section -->
+        <section class="py-12 md:py-20 border-t border-slate-border/50" id="beneficios">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="font-headline-xl text-headline-xl text-deep-navy mb-4">Tener tu propia web ya no tiene por qué ser complicado ni costoso.</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Beneficio 1 -->
+                <div class="bg-surface-white p-8 rounded-xl border border-slate-border shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-[#2563EB]">
+                        <span class="material-symbols-outlined text-2xl" data-icon="inventory_2">inventory_2</span>
+                    </div>
+                    <h3 class="font-headline-lg text-headline-lg text-deep-navy mb-3">Todo incluido</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                        Nos encargamos de la estructura, diseño y puesta en marcha completa de tu sitio.
+                    </p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="bg-surface-white p-8 rounded-xl border border-slate-border shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-[#2563EB]">
+                        <span class="material-symbols-outlined text-2xl" data-icon="search">search</span>
+                    </div>
+                    <h3 class="font-headline-lg text-headline-lg text-deep-navy mb-3">Visibilidad en Google</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                        Tu negocio aparecerá en los resultados de búsqueda cuando los clientes te necesiten.
+                    </p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="bg-surface-white p-8 rounded-xl border border-slate-border shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-[#2563EB]">
+                        <span class="material-symbols-outlined text-2xl" data-icon="forum">forum</span>
+                    </div>
+                    <h3 class="font-headline-lg text-headline-lg text-deep-navy mb-3">Más contactos</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                        Diseñada estratégicamente para convertir visitantes en consultas reales a tu WhatsApp.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estructura Section -->
+        <section class="py-12 md:py-20 border-t border-slate-border/50 bg-surface-container-low rounded-3xl px-8 my-12" id="estructura">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+                <div class="flex-1">
+                    <h2 class="font-headline-xl text-headline-xl text-deep-navy mb-6">Estructura de tu futura página web</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-4">
+                        Una <strong>Landing Page</strong> (o página de aterrizaje) es un sitio web de una sola página diseñado específicamente con un objetivo en mente: la conversión.
+                    </p>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">
+                        A diferencia de los sitios web tradicionales con múltiples secciones, una landing page guía al visitante a través de la información clave de tu negocio para finalmente invitarlos a realizar una acción directa, como <strong>contactarte por WhatsApp para cerrar una venta</strong>. Es tu vendedor digital 24/7.
+                    </p>
+                </div>
+                <div class="flex-1 bg-surface-white p-6 rounded-2xl border border-slate-border shadow-md">
+                    <div class="flex flex-col gap-4">
+                        <div class="h-8 bg-blue-100 rounded-md w-3/4"></div>
+                        <div class="h-32 bg-surface-container-high rounded-lg w-full"></div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="h-24 bg-surface-container-low rounded-lg w-full"></div>
+                            <div class="h-24 bg-surface-container-low rounded-lg w-full"></div>
+                        </div>
+                        <div class="h-12 bg-[#2563EB] rounded-lg w-full mt-4 flex items-center justify-center">
+                            <span class="text-white font-label-md">Contactar por WhatsApp</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio -->
+<section class="py-12 md:py-24" id="portfolio">
+<h2 class="font-headline-xl text-headline-xl text-deep-navy mb-12">Proyectos, negocios y empresas que Confían en nosotros</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Portfolio Item 1 -->
+<div class="group relative bg-surface-white rounded-2xl overflow-hidden border border-slate-border shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+<div class="aspect-video w-full bg-surface-container-high relative overflow-hidden">
+  <img src="screen electrotest.png" alt="Plexi Gestión" class="absolute inset-0 w-full h-full object-cover">
+</div>
+
+<div class="p-6 md:p-8 flex-grow flex flex-col justify-between bg-surface-white relative z-10 border-t border-slate-border">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-deep-navy mb-2">Electrotest</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Mantenimiento eléctrico de alta tensión (Catamarca y NOA).</p>
+<a href="https://electrotest.com.ar" target="_blank" class="mt-4 inline-block bg-[#2563EB] text-white font-label-md text-label-md px-4 py-2 rounded-lg transition-colors hover:bg-blue-700">Ver proyecto</a>
+</div>
+</div>
+</div>
+<!-- Portfolio Item 2 -->
+<div class="group relative bg-surface-white rounded-2xl overflow-hidden border border-slate-border shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+<div class="aspect-video w-full bg-surface-container-high relative overflow-hidden">
+  <img src="Screenshot 2026-08-30 104404.png" alt="Plexi Gestión" class="absolute inset-0 w-full h-full object-cover">
+</div>
+<div class="p-6 md:p-8 flex-grow flex flex-col justify-between bg-surface-white relative z-10 border-t border-slate-border">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-deep-navy mb-2">Plexi Gestión</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Asesoramiento en análisis de datos y administración.</p>
+<a href="https://plexi-gestion.uzielorozco44.workers.dev/" target="_blank" class="mt-4 inline-block bg-[#2563EB] text-white font-label-md text-label-md px-4 py-2 rounded-lg transition-colors hover:bg-blue-700">Ver proyecto
+</a>
+</div>
+</div>
+</div>
+<!-- Portfolio Item 3 -->
+<div class="group relative bg-surface-white rounded-2xl overflow-hidden border border-slate-border shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+<div class="aspect-video w-full bg-surface-container-high relative overflow-hidden">
+  <img src="screen datovivo.png" alt="Datovivo" class="absolute inset-0 w-full h-full object-cover">
+</div>
+<div class="p-6 md:p-8 flex-grow flex flex-col justify-between bg-surface-white relative z-10 border-t border-slate-border">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-deep-navy mb-2">Datovivo</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Informes estadísticos y visualización de datos.</p>
+<a href="https://uziel44.github.io/datovivo/" target="_blank" class="mt-4 inline-block bg-[#2563EB] text-white font-label-md text-label-md px-4 py-2 rounded-lg transition-colors hover:bg-blue-700">Ver proyecto</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+        <!-- Contact Form Section (Igual a de la web dir.ar) -->
+        <section class="py-12 md:py-20 border-t border-slate-border/50" id="contacto">
+            <div class="max-w-4xl mx-auto bg-surface-white p-8 md:p-12 rounded-3xl border border-slate-border shadow-lg relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
+                <div class="relative z-10 text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-sm font-semibold text-[#2563EB] tracking-wider uppercase bg-blue-50 px-4 py-1.5 rounded-full">Contacto</span>
+                    <h2 class="font-headline-xl text-headline-xl text-deep-navy mt-4 mb-2">Empezá ahora, te contactamos nosotros</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">Completá el formulario y en menos de 24hs te armamos tu web.</p>
+                </div>
+                <form id="contactForm" action="https://formspree.io/f/xnpqnwwb" method="POST" class="relative z-10 max-w-2xl mx-auto space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="businessName" class="block text-sm font-semibold text-deep-navy mb-2">Nombre del negocio o marca profesional</label>
+                            <input type="text" id="businessName" required class="w-full px-4 py-3 rounded-lg border border-slate-border focus:ring-2 focus:ring-blue-500/20 focus:border-[#2563EB] bg-slate-50 transition-all text-on-background" placeholder="Ej: Lilen Pastelería">
+                        </div>
+                        <div>
+                            <label for="whatsapp" class="block text-sm font-semibold text-deep-navy mb-2">Teléfono de contacto / WhatsApp</label>
+                            <input type="tel" id="whatsapp" required class="w-full px-4 py-3 rounded-lg border border-slate-border focus:ring-2 focus:ring-blue-500/20 focus:border-[#2563EB] bg-slate-50 transition-all text-on-background" placeholder="Ej: +54 9 351 773-2496">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="address" class="block text-sm font-semibold text-deep-navy mb-2">Dirección / Ubicación (Opcional)</label>
+                        <input type="text" id="address" class="w-full px-4 py-3 rounded-lg border border-slate-border focus:ring-2 focus:ring-blue-500/20 focus:border-[#2563EB] bg-slate-50 transition-all text-on-background" placeholder="Ej: Av. Colón 1200, Córdoba">
+                    </div>
+                    <div>
+                        <label for="servicesDesc" class="block text-sm font-semibold text-deep-navy mb-2">Descripción de servicios o productos</label>
+                        <textarea id="servicesDesc" rows="4" required class="w-full px-4 py-3 rounded-lg border border-slate-border focus:ring-2 focus:ring-blue-500/20 focus:border-[#2563EB] bg-slate-50 transition-all text-on-background" placeholder="Contanos qué hacés, qué vendés o qué ofrecés..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-[#2563EB] hover:bg-blue-700 text-white font-label-md text-label-md py-4 rounded-xl transition-all shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 text-lg font-bold">
+                        <span>¡Quiero mi web en 24hs!</span>
+                        <span class="material-symbols-outlined text-xl">send</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-deep-navy text-surface-white w-full py-16 px-margin-mobile md:px-margin-desktop mt-auto border-t border-slate-border/20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-container-max mx-auto">
+            <div class="flex flex-col gap-4">
+                <span class="font-headline-lg text-headline-lg text-surface-white font-bold">Plexiweb</span>
+                <p class="font-body-md text-body-md text-surface-container-high opacity-80 max-w-sm">
+                    Soluciones digitales rápidas y efectivas para que tu negocio empiece a vender más hoy mismo.
+                </p>
+                <p class="text-xs text-slate-400 mt-2">© 2026 Plexiweb Development. Todos los derechos reservados.</p>
+            </div>
+            <div class="flex flex-col gap-6 md:items-end">
+                <h3 class="font-headline-lg text-xl text-surface-white font-bold">Contacto Directo</h3>
+                <a class="flex items-center gap-3 font-body-md text-body-md text-surface-container-high hover:text-white transition-colors group cursor-pointer" href="https://wa.me/5493517732496">
+                    <span class="w-10 h-10 rounded-full bg-surface-white/10 flex items-center justify-center group-hover:bg-[#2563EB] transition-colors">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+                    </span>
+                    3517732496
+                </a>
+                <a class="flex items-center gap-3 font-body-md text-body-md text-surface-container-high hover:text-white transition-colors group cursor-pointer" href="mailto:uzielorozco44@gmail.com">
+                    <span class="w-10 h-10 rounded-full bg-surface-white/10 flex items-center justify-center group-hover:bg-[#2563EB] transition-colors">
+                        <span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+                    </span>
+                    uzielorozco44@gmail.com
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for interactivity -->
+    <script>
+        // Mobile Menu logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Close mobile menu on clicking any link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                // Remover preventDefault para que Formspree funcione
+                // e.preventDefault();
+            });
+        }
+    </script>
+</body>
+</html>
